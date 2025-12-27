@@ -2,13 +2,13 @@ package simulation.entities.creatures;
 
 import simulation.entities.Entity;
 import simulation.entities.EntityType;
-import simulation.worldMap.Coordinate;
-import simulation.worldMap.WorldMap;
+import simulation.worldmap.Coordinate;
+import simulation.worldmap.WorldMap;
 
 import java.util.Optional;
 
 public class Herbivore extends Creature {
-    private final int HP_RESTORED_PER_GRASS_EATEN = 1;
+    private static final int HP_RESTORED_PER_GRASS_EATEN = 1;
 
     public Herbivore(int speed, int maxHp, int hp) {
         super(speed, maxHp, hp);
@@ -52,7 +52,7 @@ public class Herbivore extends Creature {
 
     public void handlePredatorAttack(WorldMap worldMap, int attackPower) {
         this.takeDamage(attackPower);
-        this.checkHealth(worldMap);
+        this.updateHealthStatus(worldMap);
     }
 
     public void takeDamage(int attackPower) {

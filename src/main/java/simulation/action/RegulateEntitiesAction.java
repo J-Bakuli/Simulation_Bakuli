@@ -3,9 +3,9 @@ package simulation.action;
 import simulation.config.SimulationConfig;
 import simulation.entities.EntityFactory;
 import simulation.entities.EntityType;
-import simulation.worldMap.Coordinate;
-import simulation.worldMap.WorldMap;
-import simulation.worldMap.WorldMapUtils;
+import simulation.worldmap.Coordinate;
+import simulation.worldmap.WorldMap;
+import simulation.worldmap.WorldMapUtils;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -44,7 +44,7 @@ public class RegulateEntitiesAction implements Action {
 
         for (int i = 0; i < count && i < freeCells.size(); i++) {
             Coordinate coord = freeCells.get(i);
-            worldMap.setEntity(coord, entityFactory.createEntity(entityType));
+            worldMap.setEntity(coord, entityFactory.create(entityType));
         }
     }
 

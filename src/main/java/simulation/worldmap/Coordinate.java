@@ -1,4 +1,4 @@
-package simulation.worldMap;
+package simulation.worldmap;
 
 public record Coordinate(int x, int y) {
 }

@@ -3,11 +3,11 @@ package simulation.entities.creatures;
 import simulation.entities.Entity;
 import simulation.entities.EntityType;
 import simulation.exceptions.InvalidWorldMapException;
-import simulation.pathFinding.Direction;
-import simulation.pathFinding.PathFinder;
-import simulation.worldMap.Coordinate;
-import simulation.worldMap.WorldMap;
-import simulation.worldMap.WorldMapUtils;
+import simulation.pathfinding.Direction;
+import simulation.pathfinding.PathFinder;
+import simulation.worldmap.Coordinate;
+import simulation.worldmap.WorldMap;
+import simulation.worldmap.WorldMapUtils;
 
 import java.util.Comparator;
 import java.util.List;
@@ -158,7 +158,7 @@ public abstract class Creature extends Entity {
         }
     }
 
-    public void checkHealth(WorldMap worldMap) {
+    public void updateHealthStatus(WorldMap worldMap) {
         if (worldMap == null) {
             throw new InvalidWorldMapException("WorldMap cannot be null.");
         }

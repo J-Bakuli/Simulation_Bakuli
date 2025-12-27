@@ -3,7 +3,7 @@ package simulation.action;
 import simulation.config.SimulationConfig;
 import simulation.entities.Entity;
 import simulation.entities.creatures.Creature;
-import simulation.worldMap.WorldMap;
+import simulation.worldmap.WorldMap;
 
 import java.util.ArrayList;
 import java.util.Collection;

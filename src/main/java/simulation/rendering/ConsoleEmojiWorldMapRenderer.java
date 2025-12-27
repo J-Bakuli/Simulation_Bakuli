@@ -4,8 +4,8 @@ import simulation.entities.Entity;
 import simulation.entities.EntityType;
 import simulation.entities.creatures.Creature;
 import simulation.entities.creatures.Herbivore;
-import simulation.worldMap.Coordinate;
-import simulation.worldMap.WorldMap;
+import simulation.worldmap.Coordinate;
+import simulation.worldmap.WorldMap;
 
 import java.util.Objects;
 import java.util.Optional;

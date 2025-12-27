@@ -15,7 +15,7 @@ public class InitMessages {
                     
             """;
 
-    public static void printMessages() {
+    public static void print() {
         System.out.printf(WELCOME_MESSAGE);
     }
 }

@@ -19,8 +19,8 @@ public class SimulationRunner {
         simulationConfig = SimulationConfigFactory.createDefaultSimulationConfig();
     }
 
-    public static void run() {
-        InitMessages.printMessages();
+    public static void execute() {
+        InitMessages.print();
 
         Scanner scanner = new Scanner(System.in);
 
@@ -37,13 +37,13 @@ public class SimulationRunner {
     }
 
     private static boolean waitForStartCommand(Scanner scanner) {
-        final String PROMPT = "Start simulation? [0: Yes | 1: No]";
-        final String ERROR_INPUT = "Input error: please enter a number (0–1).";
-        final String ERROR_INVALID = "Invalid input. Please enter 0, 1.";
-        final String LEAVE_MESSAGE = "Exiting the simulation.";
+        final String prompt = "Start simulation? [0: Yes | 1: No]";
+        final String errorInput = "Input error: please enter a number (0–1).";
+        final String errorInvalid = "Invalid input. Please enter 0, 1.";
+        final String leaveMessage = "Exiting the simulation.";
 
         while (true) {
-            System.out.println(PROMPT);
+            System.out.println(prompt);
 
             try {
                 int choice = scanner.nextInt();
@@ -51,21 +51,21 @@ public class SimulationRunner {
                 if (choice == START_SIMULATION_INIT_COMMAND) {
                     return true;
                 } else if (choice == STOP_SIMULATION_INIT_COMMAND) {
-                    System.out.println(LEAVE_MESSAGE);
+                    System.out.println(leaveMessage);
                     return false;
                 } else {
-                    System.out.println(ERROR_INVALID);
+                    System.out.println(errorInvalid);
                 }
             } catch (InputMismatchException e) {
-                System.err.println(ERROR_INPUT);
+                System.err.println(errorInput);
                 scanner.next();
             }
         }
     }
 
     public static void runUserControlCommands(Simulation simulation, Scanner scanner) {
-        final String ERROR_INPUT = "Input error: please enter a number (1–3).";
-        final String ERROR_INVALID = "Invalid input. Please enter 1, 2, or 3.";
+        final String errorInput = "Input error: please enter a number (1–3).";
+        final String errorInvalid = "Invalid input. Please enter 1, 2, or 3.";
 
         while (true) {
             try {
@@ -78,10 +78,10 @@ public class SimulationRunner {
                         simulation.stopSimulation();
                         return;
                     }
-                    default -> System.out.println(ERROR_INVALID);
+                    default -> System.out.println(errorInvalid);
                 }
             } catch (InputMismatchException e) {
-                System.err.println(ERROR_INPUT);
+                System.err.println(errorInput);
                 scanner.next();
             }
         }

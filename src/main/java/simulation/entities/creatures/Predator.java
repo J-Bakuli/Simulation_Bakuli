@@ -2,14 +2,14 @@ package simulation.entities.creatures;
 
 import simulation.entities.Entity;
 import simulation.entities.EntityType;
-import simulation.worldMap.Coordinate;
-import simulation.worldMap.WorldMap;
+import simulation.worldmap.Coordinate;
+import simulation.worldmap.WorldMap;
 
 import java.util.Optional;
 
 public class Predator extends Creature {
     private final int attackPower;
-    private final int HP_RESTORED_PER_HERBIVORE_EATEN = 1;
+    private static final int HP_RESTORED_PER_HERBIVORE_EATEN = 1;
 
     public Predator(int speed, int maxHp, int hp, int attackPower) {
         super(speed, maxHp, hp);
@@ -67,7 +67,7 @@ public class Predator extends Creature {
     }
 
     @Override
-    public void checkHealth(WorldMap worldMap) {
+    public void updateHealthStatus(WorldMap worldMap) {
         System.out.printf("[PREDATOR_CHECK] %s HP: %d (ignored)%n", this, this.getHp());
     }
 }

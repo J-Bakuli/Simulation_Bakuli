@@ -1,4 +1,4 @@
-package simulation.pathFinding;
+package simulation.pathfinding;
 
 public enum Direction {
     NORTH(0, 1),

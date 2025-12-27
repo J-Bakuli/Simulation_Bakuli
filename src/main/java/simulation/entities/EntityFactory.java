@@ -14,7 +14,7 @@ public class EntityFactory {
         this.simulationConfig = simulationConfig;
     }
 
-    public Entity createEntity(EntityType entityType) {
+    public Entity create(EntityType entityType) {
         return switch (entityType) {
             case HERBIVORE -> new Herbivore(
                     simulationConfig.getHerbivoreConfig().speed(),

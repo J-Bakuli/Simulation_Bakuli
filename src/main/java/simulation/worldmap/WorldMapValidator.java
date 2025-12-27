@@ -1,4 +1,4 @@
-package simulation.worldMap;
+package simulation.worldmap;
 
 import simulation.entities.EntityType;
 

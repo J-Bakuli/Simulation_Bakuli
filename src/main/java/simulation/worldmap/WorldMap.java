@@ -1,4 +1,4 @@
-package simulation.worldMap;
+package simulation.worldmap;
 
 import simulation.entities.Entity;
 import simulation.entities.creatures.Creature;
@@ -67,7 +67,7 @@ public class WorldMap {
     }
 
     public void setEntity(Coordinate coordinate, Entity entity) {
-        ensureInBounds(coordinate);
+        validate(coordinate);
         entities.put(coordinate, entity);
     }
 
@@ -116,7 +116,7 @@ public class WorldMap {
         entities.remove(coordinate);
     }
 
-    public void ensureInBounds(Coordinate coordinate) {
+    public void validate(Coordinate coordinate) {
         int x = coordinate.x();
         int y = coordinate.y();
 

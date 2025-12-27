@@ -4,9 +4,9 @@ import simulation.config.SimulationConfig;
 import simulation.entities.Entity;
 import simulation.entities.EntityFactory;
 import simulation.entities.EntityType;
-import simulation.worldMap.Coordinate;
-import simulation.worldMap.WorldMap;
-import simulation.worldMap.WorldMapValidator;
+import simulation.worldmap.Coordinate;
+import simulation.worldmap.WorldMap;
+import simulation.worldmap.WorldMapValidator;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -71,7 +71,7 @@ public class WorldSetupAction implements Action {
             for (int i = 0; i < count; i++) {
                 Coordinate coordinate = coordinates.get(index++);
                 WorldMapValidator.validateCoordinateIsEmpty(worldMap, coordinate);
-                Entity entity = entityFactory.createEntity(type);
+                Entity entity = entityFactory.create(type);
                 worldMap.setEntity(coordinates.get(index++), entity);
             }
         }

@@ -7,7 +7,7 @@ import simulation.action.WorldSetupAction;
 import simulation.config.SimulationConfig;
 import simulation.rendering.InfoRenderer;
 import simulation.rendering.WorldMapRenderer;
-import simulation.worldMap.WorldMap;
+import simulation.worldmap.WorldMap;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +26,7 @@ public class Simulation {
     private static final String PAUSE_SIMULATION_MESSAGE = "Simulation is paused.";
     private static final String CONTINUE_SIMULATION_MESSAGE = "We continue. Simulation is ongoing.";
     private static final String EXIT_SIMULATION_MESSAGE = "Simulation is finished. Thank you for the game!";
-    private final long PAUSE_TIMEOUT_MS = 60_000L;
+    private static final long PAUSE_TIMEOUT_MS = 60_000L;
     private static final long TURN_DURATION_MS = 1500L;
 
     public Simulation(SimulationConfig cfg) {

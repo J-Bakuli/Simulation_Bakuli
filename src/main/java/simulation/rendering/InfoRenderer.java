@@ -1,7 +1,7 @@
 package simulation.rendering;
 
-import simulation.worldMap.WorldMap;
-import simulation.worldMap.WorldMapUtils;
+import simulation.worldmap.WorldMap;
+import simulation.worldmap.WorldMapUtils;
 
 public class InfoRenderer implements WorldMapRenderer {
     @Override

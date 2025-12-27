@@ -1,8 +1,8 @@
 package simulation.config;
 
 import simulation.entities.EntityType;
-import simulation.pathFinding.BreadthFirstSearchPathFinder;
-import simulation.pathFinding.PathFinder;
+import simulation.pathfinding.BreadthFirstSearchPathFinder;
+import simulation.pathfinding.PathFinder;
 import simulation.rendering.ConsoleEmojiWorldMapRenderer;
 import simulation.rendering.InfoRenderer;
 import simulation.rendering.WorldMapRenderer;

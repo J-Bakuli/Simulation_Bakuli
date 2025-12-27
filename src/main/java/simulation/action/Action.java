@@ -1,6 +1,6 @@
 package simulation.action;
 
-import simulation.worldMap.WorldMap;
+import simulation.worldmap.WorldMap;
 
 public interface Action {
     void execute(WorldMap worldMap);
