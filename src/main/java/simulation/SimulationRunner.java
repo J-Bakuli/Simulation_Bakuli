@@ -53,9 +53,8 @@ public class SimulationRunner {
                 } else if (choice == STOP_SIMULATION_INIT_COMMAND) {
                     System.out.println(leaveMessage);
                     return false;
-                } else {
-                    System.out.println(errorInvalid);
                 }
+                System.out.println(errorInvalid);
             } catch (InputMismatchException e) {
                 System.err.println(errorInput);
                 scanner.next();

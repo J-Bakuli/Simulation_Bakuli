@@ -9,6 +9,6 @@ public class InfoRenderer implements WorldMapRenderer {
         int herbivoreCount = WorldMapUtils.getHerbivoreCoordinateList(worldMap).size();
         int predatorCount = WorldMapUtils.getPredatorCoordinateList(worldMap).size();
 
-        System.out.printf("Current count: herbivores — %d, predators — %d.%n%n", herbivoreCount, predatorCount);
+        System.out.printf("Current count: herbivores — %d, predators — %d.\n\n", herbivoreCount, predatorCount);
     }
 }

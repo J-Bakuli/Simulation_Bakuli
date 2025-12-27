@@ -31,9 +31,8 @@ public class WorldMap {
     public Optional<Entity> getEntity(Coordinate coordinate) {
         if (coordinate == null) {
             return Optional.empty();
-        } else {
-            return Optional.ofNullable(entities.get(coordinate));
         }
+        return Optional.ofNullable(entities.get(coordinate));
     }
 
     public Map<Coordinate, Entity> getEntities() {
@@ -42,7 +41,7 @@ public class WorldMap {
 
     public void setEntities(HashMap<Coordinate, Entity> newEntities) {
         if (newEntities == null) {
-            throw new IllegalArgumentException("newEntities не может быть null");
+            throw new IllegalArgumentException("newEntities cannot be null");
         }
         this.entities.clear();
         this.entities.putAll(newEntities);
@@ -108,9 +107,9 @@ public class WorldMap {
         Entity currentEntity = currentEntityOpt.get();
 
         if (!(currentEntity == entity)) {
-            throw new EntityNotFoundException(String.format(
-                    "Expected entity %s does not match current entity %s at coordinate %s",
-                    entity, currentEntity, coordinate));
+            String message = "Expected entity %s does not match current entity %s at coordinate %s"
+                    .formatted(entity, currentEntity, coordinate);
+            throw new EntityNotFoundException(message);
         }
 
         entities.remove(coordinate);
@@ -121,9 +120,8 @@ public class WorldMap {
         int y = coordinate.y();
 
         if (!isInBounds(coordinate)) {
-            throw new InvalidCoordinateException(
-                    String.format("Coordinates (%d, %d) are out of bounds (%d×%d)", x, y, width, height)
-            );
+            String message = "Coordinates (%d, %d) are out of bounds (%d×%d)".formatted(x, y, width, height);
+            throw new InvalidCoordinateException(message);
         }
     }
 
