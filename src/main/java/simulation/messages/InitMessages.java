@@ -1,12 +1,21 @@
 package simulation.messages;
 
 public class InitMessages {
-    private static final String INIT_MESSAGES = "Добро пожаловать в игру Симуляция. \n" +
-            "Вы увидете пошаговую симуляцию 2D мира, населённого травоядными и хищниками. \n" +
-            "Кроме существ, мир содержит ресурсы (траву), которыми питаются травоядные, и статичные объекты, " +
-            "камни  и деревья. %n%n";
+    private static final String WELCOME_MESSAGE = """
+            Добро пожаловать в игру «Симуляция»!
+
+            Вы увидите пошаговую симуляцию 2D‑мира, населённого:
+            - травоядными;
+            - хищниками.
+
+            Мир также содержит:
+            - ресурсы (траву) — пища для травоядных;
+            - статичные объекты (камни, деревья).
+                
+                    
+            """;
 
     public static void printMessages() {
-        System.out.printf(INIT_MESSAGES);
+        System.out.printf(WELCOME_MESSAGE);
     }
 }
