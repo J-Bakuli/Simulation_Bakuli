@@ -137,7 +137,7 @@ public class Simulation {
 
     private void incrementAndPrintCurrentTurnInfo() {
         int newTurn = incrementTurn();
-        System.out.printf("Step: %d%n", newTurn);
+        System.out.printf("Step: %d\n", newTurn);
     }
 
     private void render() {
@@ -146,6 +146,10 @@ public class Simulation {
     }
 
     private void printUserControlInfoMenu() {
-        System.out.println("[MENU] → 1: Pause | → 2: Continue | → 3: Exit \n");
+        System.out.printf(
+                "[MENU] → %d: Pause | → %d: Continue | → %d: Exit \n",
+                SimulationRunner.PAUSE_SIMULATION_COMMAND,
+                SimulationRunner.CONTINUE_SIMULATION_COMMAND,
+                SimulationRunner.EXIT_SIMULATION_COMMAND);
     }
 }

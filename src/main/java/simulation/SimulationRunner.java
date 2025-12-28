@@ -37,9 +37,12 @@ public class SimulationRunner {
     }
 
     private static boolean waitForStartCommand(Scanner scanner) {
-        final String prompt = "Start simulation? [0: Yes | 1: No]";
-        final String errorInput = "Input error: please enter a number (0–1).";
-        final String errorInvalid = "Invalid input. Please enter 0, 1.";
+        final String prompt = String.format("Start simulation? [%d: Yes | %d: No]",
+                START_SIMULATION_INIT_COMMAND, STOP_SIMULATION_INIT_COMMAND);
+        final String errorInput = String.format("Input error: please enter a number (%d–%d).",
+                START_SIMULATION_INIT_COMMAND, STOP_SIMULATION_INIT_COMMAND);
+        final String errorInvalid = String.format("Invalid input. Please enter %d, %d.",
+                START_SIMULATION_INIT_COMMAND, STOP_SIMULATION_INIT_COMMAND);
         final String leaveMessage = "Exiting the simulation.";
 
         while (true) {
@@ -63,8 +66,10 @@ public class SimulationRunner {
     }
 
     public static void runUserControlCommands(Simulation simulation, Scanner scanner) {
-        final String errorInput = "Input error: please enter a number (1–3).";
-        final String errorInvalid = "Invalid input. Please enter 1, 2, or 3.";
+        final String errorInput = String.format("Input error: please enter a number (%d–%d).",
+                PAUSE_SIMULATION_COMMAND, EXIT_SIMULATION_COMMAND);
+        final String errorInvalid = String.format("Invalid input. Please enter %d, %d, or %d.",
+                PAUSE_SIMULATION_COMMAND, CONTINUE_SIMULATION_COMMAND, EXIT_SIMULATION_COMMAND);
 
         while (true) {
             try {
