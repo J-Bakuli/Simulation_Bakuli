@@ -1,7 +1,7 @@
 package simulation;
 
+import simulation.config.DefaultSimulationConfigFactory;
 import simulation.config.SimulationConfig;
-import simulation.config.SimulationConfigFactory;
 import simulation.messages.InitMessages;
 
 import java.util.InputMismatchException;
@@ -13,7 +13,7 @@ public class SimulationRunner {
     public static final int PAUSE_SIMULATION_COMMAND = 1;
     public static final int CONTINUE_SIMULATION_COMMAND = 2;
     public static final int EXIT_SIMULATION_COMMAND = 3;
-    private static final SimulationConfig simulationConfig = SimulationConfigFactory.createDefaultSimulationConfig();
+    private static final SimulationConfig simulationConfig = new DefaultSimulationConfigFactory().create();
 
     public static void execute() {
         InitMessages.print();
