@@ -7,7 +7,6 @@ import simulation.exceptions.InvalidCoordinateException;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 import java.util.Optional;
 
 public class WorldMap {
@@ -29,9 +28,6 @@ public class WorldMap {
     }
 
     public Optional<Entity> getEntity(Coordinate coordinate) {
-        if (coordinate == null) {
-            return Optional.empty();
-        }
         return Optional.ofNullable(entities.get(coordinate));
     }
 
@@ -53,7 +49,6 @@ public class WorldMap {
     }
 
     public boolean hasEntity(Entity entity) {
-        Objects.requireNonNull(entity, "Entity cannot be null");
         return entities.containsValue(entity);
     }
 
@@ -68,9 +63,6 @@ public class WorldMap {
     }
 
     public boolean addEntity(Coordinate coordinate, Entity entity) {
-        if (coordinate == null || entity == null) {
-            return false;
-        }
         if (!isInBounds(coordinate) || entities.containsKey(coordinate)) {
             return false;
         }
@@ -79,13 +71,6 @@ public class WorldMap {
     }
 
     public void removeEntity(Coordinate coordinate, Entity entity) {
-        if (coordinate == null) {
-            throw new IllegalArgumentException("Coordinate cannot be null in removeEntity()");
-        }
-        if (entity == null) {
-            throw new IllegalArgumentException("Entity cannot be null in removeEntity()");
-        }
-
         if (!isInBounds(coordinate)) {
             throw new InvalidCoordinateException(String.format("Coordinate %s is out of bounds", coordinate));
         }
@@ -118,10 +103,6 @@ public class WorldMap {
     }
 
     public boolean isInBounds(Coordinate coordinate) {
-        if (coordinate == null) {
-            return false;
-        }
-
         int x = coordinate.x();
         int y = coordinate.y();
 
