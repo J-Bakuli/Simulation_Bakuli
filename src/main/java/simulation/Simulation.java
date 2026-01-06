@@ -15,6 +15,11 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 public class Simulation {
+    private static final String PAUSE_SIMULATION_MESSAGE = "Simulation is paused.";
+    private static final String CONTINUE_SIMULATION_MESSAGE = "We continue. Simulation is ongoing.";
+    private static final String EXIT_SIMULATION_MESSAGE = "Simulation is finished. Thank you for the game!";
+    private static final long PAUSE_TIMEOUT_MS = 60_000L;
+    private static final long TURN_DURATION_MS = 1500L;
     private final WorldMap worldMap;
     private final InfoRenderer infoRenderer;
     private final WorldMapRenderer worldMapRenderer;
@@ -23,11 +28,6 @@ public class Simulation {
     private volatile boolean isRunning = false;
     private int currentTurn;
     private volatile SimulationState state = SimulationState.STOPPED;
-    private static final String PAUSE_SIMULATION_MESSAGE = "Simulation is paused.";
-    private static final String CONTINUE_SIMULATION_MESSAGE = "We continue. Simulation is ongoing.";
-    private static final String EXIT_SIMULATION_MESSAGE = "Simulation is finished. Thank you for the game!";
-    private static final long PAUSE_TIMEOUT_MS = 60_000L;
-    private static final long TURN_DURATION_MS = 1500L;
 
     public Simulation(SimulationConfig cfg) {
         this.worldMap = new WorldMap(cfg.getWorldMapHeight(), cfg.getWorldMapWidth());
