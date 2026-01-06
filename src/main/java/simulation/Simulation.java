@@ -56,11 +56,7 @@ public class Simulation {
 
     private void executeActions(List<Action> actions) {
         for (Action action : actions) {
-            try {
-                action.execute(worldMap);
-            } catch (Exception e) {
-                System.err.println("Error executing action: " + e.getMessage());
-            }
+            action.execute(worldMap);
         }
     }
 

@@ -7,7 +7,9 @@ public class Main {
         try {
             SimulationRunner.execute();
         } catch (SimulationException e) {
-            System.out.println(e.getMessage());
-        }
+            System.err.println("CRITICAL ERROR: The simulation could not be completed.");
+            System.err.println("Reason: " + e.getClass().getSimpleName() + " — " + e.getMessage());
+            System.err.println("The program will now terminate.");
+            System.exit(1);        }
     }
 }
