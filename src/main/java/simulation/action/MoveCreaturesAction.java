@@ -1,18 +1,18 @@
 package simulation.action;
 
-import simulation.config.SimulationConfig;
 import simulation.entities.Entity;
 import simulation.entities.creatures.Creature;
+import simulation.pathfinding.PathFinder;
 import simulation.worldmap.WorldMap;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
 public class MoveCreaturesAction implements Action {
-    private final SimulationConfig simulationConfig;
+    private final PathFinder pathFinder;
 
-    public MoveCreaturesAction(SimulationConfig simulationConfig) {
-        this.simulationConfig = simulationConfig;
+    public MoveCreaturesAction(PathFinder pathFinder) {
+        this.pathFinder = pathFinder;
     }
 
     @Override
@@ -23,7 +23,7 @@ public class MoveCreaturesAction implements Action {
             for (Entity entity : entityCollection) {
                 if (entity instanceof Creature creature) {
                     if (worldMap.hasEntity(creature)) {
-                        creature.makeMove(worldMap, simulationConfig.getPathFinder());
+                        creature.makeMove(worldMap, pathFinder);
                     }
                 }
             }

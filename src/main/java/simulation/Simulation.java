@@ -34,7 +34,7 @@ public class Simulation {
         this.infoRenderer = cfg.getInfoRenderer();
         this.worldMapRenderer = cfg.getWorldMapRenderer();
         initActions.add(new WorldSetupAction(cfg));
-        turnActions.add(new MoveCreaturesAction(cfg));
+        turnActions.add(new MoveCreaturesAction(cfg.getPathFinder()));
         turnActions.add(new RegulateEntitiesAction(cfg));
     }
 
