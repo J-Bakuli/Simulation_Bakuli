@@ -45,7 +45,8 @@ public class WorldMap {
     }
 
     public boolean hasEntity(Coordinate coordinate) {
-        return coordinate != null && entities.containsKey(coordinate);
+        validate(coordinate);
+        return entities.containsKey(coordinate);
     }
 
     public boolean hasEntity(Entity entity) {
