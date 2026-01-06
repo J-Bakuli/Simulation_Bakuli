@@ -56,7 +56,15 @@ public class Simulation {
 
     private void executeActions(List<Action> actions) {
         for (Action action : actions) {
-            action.execute(worldMap);
+            try {
+                action.execute(worldMap);
+            } catch (NullPointerException e) {
+                System.err.println("CRITICAL ERROR: WorldMap is null. Simulation cannot continue." + e.getMessage());
+                System.exit(1);
+            } catch (IllegalArgumentException e) {
+                System.err.println("ERROR: Invalid action parameters: " + e.getMessage());
+                System.err.println("Skipping this action, but simulation continues.");
+            }
         }
     }
 
