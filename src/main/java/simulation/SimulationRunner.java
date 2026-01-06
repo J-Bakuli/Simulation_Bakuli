@@ -61,7 +61,7 @@ public class SimulationRunner {
         }
     }
 
-    public static void runUserControlCommands(Simulation simulation, Scanner scanner) {
+    private static void runUserControlCommands(Simulation simulation, Scanner scanner) {
         final String errorInput = String.format("Input error: please enter a number (%d–%d).",
                 PAUSE_SIMULATION_COMMAND, EXIT_SIMULATION_COMMAND);
         final String errorInvalid = String.format("Invalid input. Please enter %d, %d, or %d.",
