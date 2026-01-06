@@ -130,11 +130,7 @@ public abstract class Creature extends Entity {
 
         worldMap.removeEntity(from, creature);
 
-        boolean added = worldMap.addEntity(to, creature);
-
-        if (!added) {
-            worldMap.addEntity(from, creature);
-        }
+        worldMap.setEntity(to, creature);
     }
 
     private Optional<Coordinate> findAlternativeMove(WorldMap worldMap, Coordinate currentPos) {

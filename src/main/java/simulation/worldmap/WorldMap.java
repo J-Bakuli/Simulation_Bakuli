@@ -62,14 +62,6 @@ public class WorldMap {
         coord.ifPresent(coordinate -> entities.put(coordinate, creature));
     }
 
-    public boolean addEntity(Coordinate coordinate, Entity entity) {
-        if (!isInBounds(coordinate) || entities.containsKey(coordinate)) {
-            return false;
-        }
-        entities.put(coordinate, entity);
-        return true;
-    }
-
     public void removeEntity(Coordinate coordinate, Entity entity) {
         if (!isInBounds(coordinate)) {
             throw new InvalidCoordinateException(String.format("Coordinate %s is out of bounds", coordinate));
