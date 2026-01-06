@@ -1,6 +1,6 @@
 package simulation.messages;
 
-public class InitMessages {
+public final class InitMessages {
     private static final String WELCOME_MESSAGE = """
             Добро пожаловать в игру «Симуляция»!
 
@@ -14,6 +14,9 @@ public class InitMessages {
                 
                     
             """;
+
+    private InitMessages() {
+    }
 
     public static void print() {
         System.out.printf(WELCOME_MESSAGE);
