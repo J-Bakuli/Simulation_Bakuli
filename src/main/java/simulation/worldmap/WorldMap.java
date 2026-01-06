@@ -39,14 +39,6 @@ public class WorldMap {
         return new HashMap<>(entities);
     }
 
-    public void setEntities(HashMap<Coordinate, Entity> newEntities) {
-        if (newEntities == null) {
-            throw new IllegalArgumentException("newEntities cannot be null");
-        }
-        this.entities.clear();
-        this.entities.putAll(newEntities);
-    }
-
     public Optional<Coordinate> getEntityCoordinate(Entity entity) {
         for (Map.Entry<Coordinate, Entity> entry : entities.entrySet()) {
             if (entry.getValue() == entity) {
@@ -115,7 +107,7 @@ public class WorldMap {
         entities.remove(coordinate);
     }
 
-    public void validate(Coordinate coordinate) {
+    private void validate(Coordinate coordinate) {
         int x = coordinate.x();
         int y = coordinate.y();
 
