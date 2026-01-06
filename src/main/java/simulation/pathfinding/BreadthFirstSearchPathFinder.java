@@ -16,7 +16,7 @@ public class BreadthFirstSearchPathFinder implements PathFinder {
     private static final int MAX_SEARCH_DEPTH = 10;
 
     @Override
-    public Optional<Coordinate> findNearestMealViaBfs(WorldMap worldMap, Coordinate currentPos, Creature creature) {
+    public Optional<Coordinate> findNearestMeal(WorldMap worldMap, Coordinate currentPos, Creature creature) {
         if (!worldMap.isInBounds(currentPos)) {
             return Optional.empty();
         }
@@ -88,7 +88,7 @@ public class BreadthFirstSearchPathFinder implements PathFinder {
 
     @Override
     public Optional<Direction> findNextStepTowardMeal(WorldMap worldMap, Coordinate currentPos, Creature creature) {
-        Optional<Coordinate> nearestMealPosOpt = findNearestMealViaBfs(worldMap, currentPos, creature);
+        Optional<Coordinate> nearestMealPosOpt = findNearestMeal(worldMap, currentPos, creature);
         return nearestMealPosOpt.map(nextPos -> calculateDirection(currentPos, nextPos));
     }
 
