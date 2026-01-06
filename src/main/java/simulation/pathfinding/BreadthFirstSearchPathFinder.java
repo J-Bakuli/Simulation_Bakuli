@@ -78,7 +78,7 @@ public class BreadthFirstSearchPathFinder implements PathFinder {
                                         Queue<Coordinate> requireCheck,
                                         Set<Coordinate> alreadyChecked,
                                         Coordinate current) {
-        for (Coordinate neighbour : WorldMapUtils.getNeighbouringCells(current)) {
+        for (Coordinate neighbour : WorldMapUtils.getNeighbouringCells(worldMap, current)) {
             if (worldMap.isInBounds(neighbour) && !alreadyChecked.contains(neighbour)) {
                 requireCheck.add(neighbour);
                 alreadyChecked.add(neighbour);
@@ -107,7 +107,7 @@ public class BreadthFirstSearchPathFinder implements PathFinder {
 
     private Optional<Coordinate> findMealInAdjacentCells(WorldMap worldMap, Coordinate currentPos, Creature creature) {
         EntityType mealTypePreference = creature.getMealTypePreference();
-        return WorldMapUtils.getNeighbouringCells(currentPos).stream()
+        return WorldMapUtils.getNeighbouringCells(worldMap, currentPos).stream()
                 .filter(c -> worldMap.getEntities().get(c) != null)
                 .filter(c -> worldMap.getEntities().get(c).getType() == mealTypePreference)
                 .findFirst();

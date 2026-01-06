@@ -104,7 +104,7 @@ public abstract class Creature extends Entity {
     }
 
     protected void wander(WorldMap worldMap, Coordinate currentPos) {
-        List<Coordinate> possibleMoves = WorldMapUtils.getNeighbouringCells(currentPos).stream().toList();
+        List<Coordinate> possibleMoves = WorldMapUtils.getNeighbouringCells(worldMap, currentPos).stream().toList();
 
         List<Coordinate> validMoves = possibleMoves.stream()
                 .filter(coord -> WorldMapUtils.allowsMovementTo(worldMap, coord, this))
@@ -134,7 +134,7 @@ public abstract class Creature extends Entity {
     }
 
     private Optional<Coordinate> findAlternativeMove(WorldMap worldMap, Coordinate currentPos) {
-        Set<Coordinate> neighbours = WorldMapUtils.getNeighbouringCells(currentPos);
+        Set<Coordinate> neighbours = WorldMapUtils.getNeighbouringCells(worldMap, currentPos);
 
         return neighbours.stream()
                 .filter(worldMap::isInBounds)

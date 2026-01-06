@@ -31,31 +31,57 @@ public class WorldMapUtils {
                 .toList();
     }
 
-    public static Set<Coordinate> getNeighbouringCells(Coordinate pos) {
-        Objects.requireNonNull(pos, "Coordinate cannot be null.");
+    public static Set<Coordinate> getNeighbouringCells(WorldMap worldMap, Coordinate pos) {
+        int mapHeight = worldMap.getHeight();
+        int mapWidth = worldMap.getWidth();
 
-        if (pos.x() < 0 || pos.y() < 0) {
+        int x = pos.x();
+        int y = pos.y();
+
+        if (x < 0 || y < 0) {
             throw new IllegalArgumentException(
-                    "Coordinates must be non-negative: x=" + pos.x() + ", y=" + pos.y());
+                    "Coordinates must be non-negative: x=" + x + ", y=" + y);
         }
 
         Set<Coordinate> neighbours = new HashSet<>(8);
 
-        try {
-            neighbours.add(new Coordinate(pos.x(), pos.y() + 1));
-            neighbours.add(new Coordinate(pos.x(), pos.y() - 1));
-            neighbours.add(new Coordinate(pos.x() + 1, pos.y()));
-            neighbours.add(new Coordinate(pos.x() - 1, pos.y()));
-            neighbours.add(new Coordinate(pos.x() + 1, pos.y() + 1));
-            neighbours.add(new Coordinate(pos.x() + 1, pos.y() - 1));
-            neighbours.add(new Coordinate(pos.x() - 1, pos.y() + 1));
-            neighbours.add(new Coordinate(pos.x() - 1, pos.y() - 1));
-        } catch (ArithmeticException e) {
-            throw new ArithmeticException(
-                    "Coordinate overflow at pos=(" + pos.x() + "," + pos.y() + ")");
+        if (y + 1 < mapHeight) {
+            neighbours.add(coord(x, y + 1));
+        }
+
+        if (y - 1 >= 0) {
+            neighbours.add(coord(x, y - 1));
+        }
+
+        if (x + 1 < mapWidth) {
+            neighbours.add(coord(x + 1, y));
+        }
+
+        if (x - 1 >= 0) {
+            neighbours.add(coord(x - 1, y));
+        }
+
+        if (x + 1 < mapWidth && y + 1 < mapHeight) {
+            neighbours.add(coord(x + 1, y + 1));
+        }
+
+        if (x - 1 >= 0 && y + 1 < mapHeight) {
+            neighbours.add(coord(x - 1, y + 1));
+        }
+
+        if (x + 1 < mapWidth && y - 1 >= 0) {
+            neighbours.add(coord(x + 1, y - 1));
+        }
+
+        if (x - 1 >= 0 && y - 1 >= 0) {
+            neighbours.add(coord(x - 1, y - 1));
         }
 
         return Collections.unmodifiableSet(neighbours);
+    }
+
+    private static Coordinate coord(int x, int y) {
+        return new Coordinate(x, y);
     }
 
     public static int countEntitiesByType(WorldMap worldMap, EntityType type) {
