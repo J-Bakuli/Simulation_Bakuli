@@ -2,7 +2,7 @@ package simulation.entities.creatures;
 
 import simulation.entities.Entity;
 import simulation.entities.EntityType;
-import simulation.exceptions.InvalidWorldMapException;
+import simulation.exceptions.EntityNotFoundException;
 import simulation.pathfinding.Direction;
 import simulation.pathfinding.PathFinder;
 import simulation.worldmap.Coordinate;
@@ -51,7 +51,7 @@ public abstract class Creature extends Entity {
 
     public void makeMove(WorldMap worldMap, PathFinder pathFinder) {
         if (!this.isAlive()) {
-            return;
+            throw new EntityNotFoundException("Entity cannot be moved as it is not alive.");
         }
 
         Optional<Coordinate> currentPosOpt = worldMap.getEntityCoordinate(this);
@@ -155,10 +155,6 @@ public abstract class Creature extends Entity {
     }
 
     public void updateHealthStatus(WorldMap worldMap) {
-        if (worldMap == null) {
-            throw new InvalidWorldMapException("WorldMap cannot be null.");
-        }
-
         if (!this.isAlive() && !(this instanceof Predator)) {
             worldMap.getEntityCoordinate(this).ifPresent(coord -> {
                 worldMap.removeEntity(coord, this);
